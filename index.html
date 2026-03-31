@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAPPYYY ANNIVERSARYY MY LOVE &lt;33</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(135deg,#ffdde1,#ee9ca7,#ffc1e3);
+  overflow:hidden;
+  text-align:center;
+  min-height:100vh;
+  color:#fff;
+  position:relative;
+}
+/* Stars overlay */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+.stars::before{
+  content:"";position:absolute;width:200%;height:200%;
+  background:url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation:moveStars 60s linear infinite;opacity:0.5;
+}
+@keyframes moveStars{from{transform:translate(0,0);}to{transform:translate(-400px,-400px);}}
+
+/* Title */
+h1{
+  font-size:3.8em;margin-top:40px;
+  background: linear-gradient(135deg, #ff9ce3,#ff69b4,#ffd1dc,#ffb6c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:2px 2px 15px rgba(255,105,180,0.7);
+  position:relative;z-index:2;
+}
+
+/* Timer clouds */
+.cloud{
+  display:inline-block;
+  padding:15px 20px;
+  border-radius:35px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  box-shadow:0 0 25px rgba(255,105,180,0.5);
+  color: #fff;
+  font-size: 1.2em;
+  margin: 8px;
+  text-shadow:0 0 8px #ffb6c1;
+}
+.cloud span{color:#ff69b4;font-weight:700;}
+
+/* Typing text */
+.typing{
+  font-size:1.25em;
+  line-height:1.6em;
+  min-height:220px;
+  color:#fff;
+  border-right:3px solid #ff69b4;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  display:none;
+  margin:20px auto;
+  max-width:720px;
+  padding:20px 25px;
+  border-radius:25px;
+  background: rgba(255,255,255,0.15);
+  box-shadow:0 0 20px #ffb6c1,0 0 30px #ff69b4;
+  text-align:center;
+  position:relative;
+  z-index:3;
+}
+
+/* Popup bubble */
+#popup, #finalPopup{
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%, -50%);
+  background: rgba(255,192,203,0.95);
+  padding:25px 40px;
+  border-radius:30px;
+  font-size:1.4em;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 0 25px #ff69b4,0 0 40px #ff1493;
+  z-index:10;
+  animation: bounce 1s infinite alternate;
+  text-shadow:0 0 5px #ff69b4;
+  max-width:90%;
+}
+#finalPopup{display:none;}
+@keyframes bounce{0%{transform:translate(-50%, -52%);}100%{transform:translate(-50%, -48%);}}
+
+/* Floating hearts & emojis */
+.heart{position:fixed;user-select:none;pointer-events:none;animation:floatDown 7s linear forwards;z-index:1;}
+@keyframes floatDown{0%{transform:translateY(-40px) scale(0.7);opacity:1;}100%{transform:translateY(110vh) scale(1.2);opacity:0;}}
+
+/* Teddy cluster */
+.teddy-cluster{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);font-size:4rem;filter:drop-shadow(0 0 15px #ff69b4);user-select:none;pointer-events:none;z-index:3;}
+
+/* Love corner */
+#love-corner{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  padding:15px 20px;
+  border-radius:25px;
+  box-shadow:0 0 20px #ff69b4;
+  text-align:center;
+  font-size:1.1em;
+  color:#fff;
+  text-shadow:0 0 6px #ffb6c1;
+  max-width:240px;
+}
+
+/* Corner photo collage */
+#photo-corner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 5;
+}
+
+#photo-corner img {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 0 15px #ff69b4;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+#photo-corner img:hover {
+  transform: scale(1.15);
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:25px;
+  background:#ff69b4;
+  color:#fff;
+  font-size:1.2em;
+  cursor:pointer;
+  box-shadow:0 0 15px #ff1493;
+  margin-top:15px;
+}
+button:hover{transform:scale(1.05);}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<h1>HAPPYYY ANNIVERSARYY MY LOVE &lt;33</h1>
+
+<div id="timer-container"></div>
+
+<div id="love-corner">My love Polu, I still love you ❤️ Since the day I saw you… ✨</div>
+
+<div class="typing" id="text"></div>
+
+<div id="popup">
+  🎉 Happy 2 Year Anniversary, my love! Quick… two years?  
+  <br><button id="openMessage">Click Me 💖</button>
+</div>
+
+<div id="finalPopup">
+  💌 Beat me, Malkin! I really loved you shona i never wanted to be a bad toxic banda jise tum pareshan ho jao ik mai acha nahi diktta hu and litreally look like a goddess in heaven but i reall wanted to grow with you you are the piece of art whom i admireee ilsym shonamona luchipuchi i'm sorry shlok essa nhai tha usko bus tumhe khone se dar tha kisi or ka hone ka dekh se dar tha 💖💞✨🌸  
+  <br><br>Click to close 💕
+</div>
+
+<div class="teddy-cluster">🐻 🧸 💕 🐻 🧸 💕 🐻 🧸 💕</div>
+
+<div id="photo-corner">
+  <img src="https://i.ibb.co/twytH3Zf/photo1.jpg" alt="Polu 1">
+  <img src="https://i.ibb.co/PG2SJKh8/photo2.jpg" alt="Polu 2">
+  <img src="https://i.ibb.co/bRNHkxx6/photo3.jpg" alt="Polu 3">
+  <img src="https://i.ibb.co/zH7Qc6FN/photo4.jpg" alt="Polu 4">
+</div>
+
+<!-- Romantic YouTube Music -->
+<iframe id="ytMusic" width="1" height="1"
+src="https://www.youtube.com/embed/7EJ-e2jt0gM?enablejsapi=1&loop=1&playlist=7EJ-e2jt0gM"
+frameborder="0" allow="autoplay; encrypted-media"></iframe>
+
+<script>
+let musicStarted = false;
+function playMusic(){
+  if(!musicStarted){
+    const frame = document.getElementById('ytMusic').contentWindow;
+    frame.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    musicStarted = true;
+  }
+}
+
+// Floating hearts
+function createHeart(){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  const hearts=['💖','💜','💕','💗','🌸','✨','💘','💞','💓','💌','🌹'];
+  heart.textContent=hearts[Math.floor(Math.random()*hearts.length)];
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=(Math.random()*25+15)+'px';
+  heart.style.animationDuration=(Math.random()*3+5)+'s';
+  document.body.appendChild(heart);
+  heart.addEventListener('animationend',()=>heart.remove());
+}
+setInterval(createHeart,120);
+
+// Timer
+const startDate=new Date('April 1, 2024 00:00:00');
+const timerContainer=document.getElementById('timer-container');
+
+function updateTimer(){
+    const now=new Date();
+    let totalSec=Math.floor((now-startDate)/1000);
+    
+    const years=Math.floor(totalSec/(365*24*3600));
+    totalSec-=years*365*24*3600;
+    
+    const months=Math.floor(totalSec/(30*24*3600));
+    totalSec-=months*30*24*3600;
+    
+    const days=Math.floor(totalSec/(24*3600));
+    const totalDays=Math.floor((now-startDate)/(24*3600*1000));
+    totalSec-=days*24*3600;
+    
+    const hours=Math.floor(totalSec/3600);
+    totalSec-=hours*3600;
+    
+    const minutes=Math.floor(totalSec/60);
+    const seconds=totalSec-minutes*60;
+    
+    timerContainer.innerHTML=` 
+      <div class="cloud">🌸 Years: <span>${years}</span></div>
+      <div class="cloud">💖 Months: <span>${months}</span></div>
+      <div class="cloud">✨ Days: <span>${days}</span></div>
+      <div class="cloud">💕 Hours: <span>${hours}</span></div>
+      <div class="cloud">💗 Minutes: <span>${minutes}</span></div>
+      <div class="cloud">💘 Seconds: <span>${seconds}</span></div>
+      <div class="cloud">🕰️ Total Days: <span>${totalDays}</span></div>
+      <div class="cloud">⏱️ Total Minutes: <span>${totalDays*24*60}</span></div>
+      <div class="cloud">💞 Total Seconds: <span>${totalDays*24*3600}</span></div>
+    `;
+}
+updateTimer();
+setInterval(updateTimer,1000);
+
+// Typing message
+const message=`My love Polu, when I saw you first… idk but I felt so magically… your lips, your smile, your face… something pulled me so close… tab se leke aaj tak I'm in awe of my medicine. Seeing you feels like calm to my chaotic life… idk how do I even explain but I fall too harder… that it pains getting up again without you my loveee… Helloo, miss Noor-e-Jahann… salgirah mubarak, begum 💖✨`;
+
+let index=0;
+const textElement=document.getElementById('text');
+
+function typeWriter(){
+    if(index<message.length){
+        textElement.innerHTML += message.charAt(index);
+        index++;
+        let delay=40;
+        const char=message.charAt(index-1);
+        if(char==='.'||char==='!'||char==='?') delay=400;
+        else if(char===',') delay=150;
+        else if(char==='\n') delay=300;
+        setTimeout(typeWriter,delay);
+    }
+}
+
+// Popup click
+document.getElementById('openMessage').addEventListener('click',()=>{
+  document.getElementById('popup').style.display='none';
+  textElement.style.display='block';
+  playMusic();
+  typeWriter();
+  
+  setTimeout(()=>{
+    document.getElementById('finalPopup').style.display='block';
+  }, message.length*50 + 3000);
+});
+
+document.getElementById('finalPopup').addEventListener('click',()=>{
+  document.getElementById('finalPopup').style.display='none';
+});
+</script>
+</body>
+</html>
